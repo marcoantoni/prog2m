@@ -102,7 +102,7 @@ class ExEstDecisao{
 		// Depois multiplicamos pela porcentagem desejada.
 		// O resultado pode conter casas decimais, por isso utilizamos uma
 		// variável do tipo float para armazenar o resultado.
-		float novoValor = (valor / 100) * porcentagem;
+		float novoValor = valor + (valor / 100) * porcentagem;
 
 		System.out.printf("O valor %d acrescido de %f é igual a %f \n",
 			valor, porcentagem, novoValor);
