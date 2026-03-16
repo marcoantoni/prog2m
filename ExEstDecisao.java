@@ -89,6 +89,23 @@ class ExEstDecisao{
 				// aqui não é necessário usar break
 		}
 		
+		// Correção exercícios
+		// 1. Faça um programa que avalia um valor numérico e escreva esse valor com 
+		// um reajuste de 10%
 		
-	}	
+		int valor = 150;
+
+		float porcentagem = 10f;
+
+		// Cálculo de porcentagem.
+		// Primeiro dividimos o valor por 100 para descobrir quanto vale 1%.
+		// Depois multiplicamos pela porcentagem desejada.
+		// O resultado pode conter casas decimais, por isso utilizamos uma
+		// variável do tipo float para armazenar o resultado.
+		float novoValor = (valor / 100) * porcentagem;
+
+		System.out.printf("O valor %d acrescido de %f é igual a %f \n",
+			valor, porcentagem, novoValor);
+		
+		}	
 }
