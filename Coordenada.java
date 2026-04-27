@@ -5,6 +5,17 @@ class Coordenada {
 	int x; // valor no eixo X (horizontal)
 	int y; // valor no eixo Y (vertical)
 	
+	// TAREFA: Crie um método construtor para a classe coordenada, para inicializar os atributos
+	// x e y
+	public Coordenada(int x, int y){
+		this.x = x;	// definindo o atributo x
+		this.y = y; // definindo o atributo y
+		
+		// chamando o método determinarQuadrante() automaticamente - isso evita que seja necessário
+		// fazer c1.determinarQuadrante();
+		determinarQuadrante();
+	}
+	
 	// método responsável por identificar em qual quadrante o ponto está
 	public void determinarQuadrante(){
 		
@@ -35,23 +46,19 @@ class Coordenada {
 	public static void main(String[] args) {
 		
 		// criando o primeiro objeto da classe Coordenada
-		Coordenada c1 = new Coordenada();
+		Coordenada c1 = new Coordenada(0, -5);
 		
-		// atribuindo valores ao ponto c1
-		c1.x = 0;
-		c1.y = -5;
 		
 		// chamando o método para verificar o quadrante
-		c1.determinarQuadrante();
+		
+		// é possível remover essa chamada e colocar dentro do construtor
+		//c1.determinarQuadrante();
 		
 		// criando um segundo objeto da classe Coordenada
-		Coordenada c2 = new Coordenada();
+		Coordenada c2 = new Coordenada(-5, 12);
 		
-		// atribuindo valores ao ponto c2
-		c2.x = -5;
-		c2.y = 12;
 		
 		// chamando o método novamente para o segundo ponto
-		c2.determinarQuadrante();
+		//c2.determinarQuadrante();
 	}
 }
