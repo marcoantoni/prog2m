@@ -61,9 +61,12 @@ class Data {
 	// =========================
 	public void escreverPorExtenso(){
 
-		// Array com os nomes dos meses
-		// O índice 0 fica vazio para facilitar o uso:
-		// meses[1] = janeiro, meses[2] = fevereiro, etc.
+		// Array: estrutura que armazena vários valores do mesmo tipo em uma única variável.
+		// Aqui o array já é criado e inicializado com os nomes dos meses.
+		// Cada valor é acessado por um índice (posição), que no Java começa em 0.
+		// O índice 0 foi deixado como "" (vazio) de propósito,
+		// para que o número do mês corresponda diretamente ao índice:
+		// meses[1] = "janeiro", meses[2] = "fevereiro", ..., meses[12] = "dezembro".
 		String meses[] = {
 			"", "janeiro", "fevereiro", "março",
 			"abril", "maio", "junho", "julho",
