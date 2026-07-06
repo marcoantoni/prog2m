@@ -60,18 +60,47 @@ class Data {
 		System.out.printf("%d/%d/%d", dia, mes, ano);
 	}
 	
+	// Método que retorna a data no formato "dia de mês de ano",
+	// por exemplo: "15 de março de 2026".
+	public String escreverPorExtenso(){
+
+		// Inicia a String com o dia da data.
+		String saida = dia + " de ";
+
+		// Vetor contendo o nome de todos os meses do ano.
+		// A posição 0 representa janeiro, a posição 1 fevereiro, e assim por diante.
+		String meses[] = {"janeiro", "fevereiro", "março", "abril", "maio", "junho",
+			"julho", "agosto", "setembro", "outubro", "novembro", "dezembro"};
+
+		// Como os meses são armazenados a partir da posição 0 do vetor,
+		// utilizamos (mes - 1) para acessar o nome correto do mês.
+		saida = saida + meses[mes - 1] + " de " + ano;
+
+		// Retorna a data formatada por extenso.
+		return saida;
+	}
+	
 	// =========================
 	// MÉTODO MAIN (TESTE)
 	// =========================
 	public static void main(String args[]){
 
-		// Criando um objeto com um dia inválido (-18)
-		// Isso serve para testar a validação do construtor
-		Data dtAvaliacao = new Data(31, 14, 2026);
+		// Criando um objeto da classe Data.
+		Data dtFerias = new Data(20, 7, 2026);
 
-		System.out.print("A avaliação será no dia ");
+		// Nas linhas abaixo (comentadas), o método escreverAbreviado()
+		// era chamado diretamente, pois ele é do tipo void, ou seja,
+		// apenas exibe a informação na tela e não retorna nenhum valor.
+		//
+		// System.out.print("O inicio das férias será ");
+		// dtFerias.escreverAbreviado();
 
-		// Chamando o método para exibir a data formatada
-		dtAvaliacao.escreverAbreviado();
+		// Agora, como escreverPorExtenso() retorna uma String,
+		// podemos utilizar o valor retornado em qualquer lugar onde
+		// uma String é esperada. Neste exemplo, o retorno é passado
+		// como argumento para o printf(), usando o marcador %s.
+		System.out.printf("O inicio das férias será %s",
+			dtFerias.escreverPorExtenso()
+		);
 	}
 }
