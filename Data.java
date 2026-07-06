@@ -16,13 +16,25 @@ class Data {
 	// Ele serve para inicializar os atributos e validar os dados recebidos
 	public Data(int dia, int mes, int ano){
 		
+		if (mes >=1 && mes <= 12){
+			this.mes = mes;
+		} else {
+			System.out.printf("O mês informado é inválido \n");
+			this.mes = 1;
+		}
+		
 		// escrevando a validação do dia usando array
 		
 		// criando um array para armazenar a quantidade de dias de cada mes
 		// o array será utilizado para validar qual é o ultimo dia de cada mes
 		int diasMes[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		
-		if (dia >=1 && dia <= diasMes[mes-1]){
+		// como resolver o erro
+		// Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index 13 out of bounds for length 12
+		// at Data.<init>(Data.java:25)
+		// at Data.main(Data.java:63)
+
+		if (dia >=1 && dia <= diasMes[this.mes-1]){
 			this.dia = dia;
 		} else {
 			System.out.printf("O dia informado é inválido \n");
@@ -30,12 +42,7 @@ class Data {
 			// 0 - que é o valor padrão para o tipo int
 		}
 		
-		if (mes >=1 && mes <= 12){
-			this.mes = mes;
-		} else {
-			System.out.printf("O mês informado é inválido \n");
-			this.mes = mes;
-		}
+	
 		
 		// criando uma regra que impede anos anteriores a 1900
 		// datas como 20/09/1845 não poderão ser representadas
