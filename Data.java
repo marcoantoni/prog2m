@@ -4,9 +4,10 @@ class Data {
 	// ATRIBUTOS DA CLASSE
 	// =========================
 	// Cada objeto do tipo Data terá seu próprio dia, mês e ano
-	int dia;
-	int mes;
-	int ano;
+	// Os atributos foram encapsulados com private (17 de agosto)
+	private int dia;
+	private int mes;
+	private int ano;
 	
 	
 	// =========================
@@ -16,14 +17,26 @@ class Data {
 	// Ele serve para inicializar os atributos e validar os dados recebidos
 	public Data(int dia, int mes, int ano){
 		
-		if (mes >=1 && mes <= 12){
-			this.mes = mes;
-		} else {
-			System.out.printf("O mês informado é inválido \n");
-			this.mes = 1;
-		}
+		// como foi criado o método setMes, agora está sendo chamado esse
+		// método, pois ele faz essa validação. A ideia com isso é acabar com a repetição
+		// de código
+		setMes(mes);
 		
-		// escrevando a validação do dia usando array
+		// chamando o método setDia que é reposável por validar esse atributo
+		// com isso, eliminamos a repetição de código e criamos um meio que 
+		// permita alterar esse dado quando necessáio
+		setDia(dia);
+	
+		// TAREFA: Crie os métodos setters para os atributos mes e ano
+		
+		setAno(ano);
+		
+	}
+	
+	// criando os métodos setters da classe
+	public void setDia(int dia) {
+		// regras de negócio para validar o atributo
+		// foram movidas do método construtor para cá
 		
 		// criando um array para armazenar a quantidade de dias de cada mes
 		// o array será utilizado para validar qual é o ultimo dia de cada mes
@@ -42,8 +55,20 @@ class Data {
 			// 0 - que é o valor padrão para o tipo int
 		}
 		
+	}
 	
+	public void setMes(int mes){
+				
+		if (mes >=1 && mes <= 12){
+			this.mes = mes;
+		} else {
+			System.out.printf("O mês informado é inválido \n");
+			this.mes = 1;
+		}
 		
+	}
+
+	public void setAno(int ano){
 		// criando uma regra que impede anos anteriores a 1900
 		// datas como 20/09/1845 não poderão ser representadas
 		if (ano >= 1900) {
@@ -52,9 +77,9 @@ class Data {
 			System.out.printf("O ano informado é inválido \n");
 			this.ano = 2000;
 		}
-		
 	}
-	
+
+
 	// criando um método para escrever abreviado
 	public void escreverAbreviado() {
 		System.out.printf("%d/%d/%d", dia, mes, ano);
@@ -80,27 +105,5 @@ class Data {
 		return saida;
 	}
 	
-	// =========================
-	// MÉTODO MAIN (TESTE)
-	// =========================
-	public static void main(String args[]){
-
-		// Criando um objeto da classe Data.
-		Data dtFerias = new Data(20, 7, 2026);
-
-		// Nas linhas abaixo (comentadas), o método escreverAbreviado()
-		// era chamado diretamente, pois ele é do tipo void, ou seja,
-		// apenas exibe a informação na tela e não retorna nenhum valor.
-		//
-		// System.out.print("O inicio das férias será ");
-		// dtFerias.escreverAbreviado();
-
-		// Agora, como escreverPorExtenso() retorna uma String,
-		// podemos utilizar o valor retornado em qualquer lugar onde
-		// uma String é esperada. Neste exemplo, o retorno é passado
-		// como argumento para o printf(), usando o marcador %s.
-		System.out.printf("O inicio das férias será %s",
-			dtFerias.escreverPorExtenso()
-		);
-	}
+	
 }
